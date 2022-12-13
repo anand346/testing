@@ -8,4 +8,4 @@ parser.add_option("-b", "--branch",dest="branch",
 
 (options, args) = parser.parse_args()
 
-print(options.source,options.branch)
+print(options.source)
