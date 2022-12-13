@@ -24,6 +24,7 @@ class Watcher:
 
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
             branchName = branchName.decode()
+            
             if(options.source != "--branch" and options.branch == None) :
                 print("https:// block source",options.source)
                 subprocess.call(f'git remote set-url origin {options.source}',shell=True)     
