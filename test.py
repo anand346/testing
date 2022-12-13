@@ -23,7 +23,7 @@ class Watcher:
         if('https://' in val.decode('utf-8').split()[1]) :
 
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
-                branchName = branchName.decode()
+            branchName = branchName.decode()
             if(options.source != "--branch" and options.branch == None) :
                 print("https:// block source",options.source)
                 
