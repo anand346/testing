@@ -18,7 +18,7 @@ class Watcher:
 
     def __init__(self):
         self.observer = Observer()
-        if(options.branch == None) :
+        if(options.branch == None and options.source == None) :
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
             subprocess.call(f'git push -u origin master',shell=True)    
@@ -54,30 +54,29 @@ class Handler(FileSystemEventHandler):
         elif event.event_type == 'created':
             # Take any action here when a file is first created.
             
-            if(options.branch == None) :
-                subprocess.call('git add .',shell=True)    
-                subprocess.call('git commit -m "automated" ',shell=True)    
-                subprocess.call(f'git push -u origin master',shell=True)    
-            else :
-                subprocess.call('git init',shell=True)
-                subprocess.call('git add .',shell=True)
-                subprocess.call('git commit -m "automated" ',shell=True)
-                subprocess.call(f'git remote add origin {options.source}',shell=True)
-                subprocess.call(f'git push -u origin {options.branch}',shell=True)
+            subprocess.call('git add .',shell=True)    
+            subprocess.call('git commit -m "automated" ',shell=True)    
+            subprocess.call(f'git push -u origin master',shell=True)    
+            # else :
+            #     subprocess.call('git init',shell=True)
+            #     subprocess.call('git add .',shell=True)
+            #     subprocess.call('git commit -m "automated" ',shell=True)
+            #     subprocess.call(f'git remote add origin {options.source}',shell=True)
+            #     subprocess.call(f'git push -u origin {options.branch}',shell=True)
 
 
         elif event.event_type == 'modified':
             # Taken any action here when a file is modified.
-            if(options.branch == None) :
-                subprocess.call('git add .',shell=True)    
-                subprocess.call('git commit -m "automated" ',shell=True)    
-                subprocess.call(f'git push -u origin master',shell=True)    
-            else :
-                subprocess.call('git init',shell=True)
-                subprocess.call('git add .',shell=True)
-                subprocess.call('git commit -m "automated" ',shell=True)
-                subprocess.call(f'git remote add origin {options.source}',shell=True)
-                subprocess.call(f'git push -u origin {options.branch}',shell=True)
+            # if(options.branch == None) :
+            subprocess.call('git add .',shell=True)    
+            subprocess.call('git commit -m "automated" ',shell=True)    
+            subprocess.call(f'git push -u origin master',shell=True)    
+            # else :
+            #     subprocess.call('git init',shell=True)
+            #     subprocess.call('git add .',shell=True)
+            #     subprocess.call('git commit -m "automated" ',shell=True)
+            #     subprocess.call(f'git remote add origin {options.source}',shell=True)
+            #     subprocess.call(f'git push -u origin {options.branch}',shell=True)
 
 
 
