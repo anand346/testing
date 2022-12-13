@@ -34,7 +34,7 @@ class Watcher:
 
             subprocess.call('git add .',shell=True)     
             subprocess.call('git commit -m "automated" ',shell=True)    
-            subprocess.call(f'git push -u origin {options.branch}',shell=True)  
+            subprocess.call(f'git push -u origin {branchName}',shell=True)  
 
         else :
             print("https else block")
