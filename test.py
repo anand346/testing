@@ -67,6 +67,7 @@ class Handler(FileSystemEventHandler):
 
     @staticmethod
     def on_any_event(event):
+        print(f"source is : {event.src_path}")
         if("config.lock" in event.src_path) : 
             return None
 
