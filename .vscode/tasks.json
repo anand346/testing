@@ -10,7 +10,7 @@
             },
             "group": "none",
             "presentation": {
-                "reveal": "always",
+                "reveal": "never",
                 "panel": "new"
             },
             "runOptions": {
