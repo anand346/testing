@@ -32,7 +32,7 @@ class Watcher:
                 subprocess.call(f'git push -u origin {branchName}',shell=True)  
 
             elif(options.source == None and options.branch) :
-                print("https:// block")
+                print("https:// block branch")
                 subprocess.call(f'git checkout -b {options.branch}',shell=True)
                 subprocess.call('git add .',shell=True)     
                 subprocess.call('git commit -m "automated" ',shell=True)    
