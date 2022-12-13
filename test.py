@@ -74,7 +74,7 @@ class Handler(FileSystemEventHandler):
             return None
 
         elif (event.event_type == 'created' or event.event_type == 'modified'):
-            print("created")
+            print("event is : ",event.event_type)
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
             branchName = branchName.decode()
             subprocess.call(f'git push -u origin {branchName}',shell=True)  
