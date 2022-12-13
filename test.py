@@ -67,8 +67,10 @@ class Handler(FileSystemEventHandler):
 
     @staticmethod
     def on_any_event(event):
-        print("source is : ",event.src_path)
-        if event.is_directory:
+        if("config.lock" in event.src_path) : 
+            return None
+
+        elif event.is_directory:
             return None
 
         elif event.event_type == 'created':
