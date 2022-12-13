@@ -49,7 +49,7 @@ class Watcher:
 
     def run(self):
         event_handler = Handler()
-        
+
         self.observer.schedule(event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
         self.observer.start()
         try:
@@ -67,6 +67,7 @@ class Handler(FileSystemEventHandler):
 
     @staticmethod
     def on_any_event(event):
+        print("source is : ",event.src_path)
         if event.is_directory:
             return None
 
