@@ -71,6 +71,7 @@ class Handler(FileSystemEventHandler):
         elif event.event_type == 'created':
             print("created")
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
+            subprocess.call(f'git push -u origin {branchName}',shell=True)  
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
             subprocess.call(f'git push -u origin {branchName}',shell=True)    
@@ -78,6 +79,7 @@ class Handler(FileSystemEventHandler):
         elif event.event_type == 'modified':
             print("modified")
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
+            subprocess.call(f'git push -u origin {branchName}',shell=True)  
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
             subprocess.call(f'git push -u origin {branchName}',shell=True)    
