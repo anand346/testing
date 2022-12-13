@@ -30,6 +30,7 @@ class Watcher:
 
             elif(options.source == "--branch" and options.branch != None) :
                 print("https:// block branch")
+                branchName = 
                 subprocess.call(f'git checkout -b {options.branch}',shell=True)
 
             subprocess.call('git add .',shell=True)     
