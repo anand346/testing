@@ -29,7 +29,7 @@ class Watcher:
                 print("https:// block source",options.source)
                 subprocess.call(f'git remote set-url origin {options.source}',shell=True)     
 
-            elif(options.source == "--branch" and options.branch != None) :
+            elif(options.source == "none" and options.branch != None) :
                 print("https:// block branch")
                 branchName = options.branch
                 subprocess.call(f'git checkout -b {branchName}',shell=True)
