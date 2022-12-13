@@ -23,7 +23,7 @@ class Watcher:
         if('https://' in val.decode('utf-8').split()[1]) :
 
             print("https:// block")
-            if(options.source and options.branch == None) :
+            if(options.source != None and options.branch == None) :
                 print("https:// block source")
                 branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
                 subprocess.call(f'git remote set-url origin {options.source}',shell=True)     
@@ -31,7 +31,7 @@ class Watcher:
                 subprocess.call('git commit -m "automated" ',shell=True)    
                 subprocess.call(f'git push -u origin {branchName}',shell=True)  
 
-            elif(options.source == None and options.branch) :
+            elif(options.source == None and options.branch != None) :
                 print("https:// block branch")
                 subprocess.call(f'git checkout -b {options.branch}',shell=True)
                 subprocess.call('git add .',shell=True)     
