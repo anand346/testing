@@ -44,8 +44,8 @@
         {
             "id" : "getBranchName",
             "description" : "Type your branch name",
-            "type" : "promptString",
-            "default": "none"
+            "default": "none",
+            "type" : "promptString"
         },
     ]
 }
