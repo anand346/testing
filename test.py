@@ -49,12 +49,13 @@ class Watcher:
 
     def run(self):
         event_handler = Handler()
+        
         self.observer.schedule(event_handler, self.DIRECTORY_TO_WATCH, recursive=True)
         self.observer.start()
         try:
             while True:
-                time.sleep(5)
-        except:
+                time.sleep(1)
+        except KeyboardInterrupt:
             self.observer.stop()
             print("Error")
 
