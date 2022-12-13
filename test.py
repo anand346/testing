@@ -22,6 +22,7 @@ class Watcher:
         val = subprocess.check_output('git remote -v',shell=True)
         if('https://' in val.decode('utf-8').split()[1]) :
 
+            print("https:// block")
             if(options.source and options.branch == None) :
                 branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
                 subprocess.call(f'git remote set-url origin {options.source}',shell=True)     
@@ -36,6 +37,7 @@ class Watcher:
                 subprocess.call(f'git push -u origin {options.branch}',shell=True)  
 
         else :
+            print("https else block")
             subprocess.call('git init',shell=True)
             subprocess.call('git add .',shell=True)
             subprocess.call('git commit -m "automated" ',shell=True)
@@ -66,12 +68,14 @@ class Handler(FileSystemEventHandler):
             return None
 
         elif event.event_type == 'created':
+            print("created")
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
             subprocess.call(f'git push -u origin {branchName}',shell=True)    
 
         elif event.event_type == 'modified':
+            print("modified")
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
