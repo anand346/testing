@@ -73,7 +73,7 @@ class Handler(FileSystemEventHandler):
         elif event.is_directory:
             return None
 
-        elif event.event_type == 'created' or event.event_type == 'created':
+        elif (event.event_type == 'created' or event.event_type == 'modified'):
             print("created")
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
             branchName = branchName.decode()
