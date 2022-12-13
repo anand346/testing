@@ -82,16 +82,6 @@ class Handler(FileSystemEventHandler):
             subprocess.call('git commit -m "automated" ',shell=True)    
             subprocess.call(f'git push -u origin {branchName}',shell=True)    
 
-        elif event.event_type == 'modified':
-            print("modified")
-            branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
-            branchName = branchName.decode()
-            subprocess.call(f'git push -u origin {branchName}',shell=True)  
-            subprocess.call('git add .',shell=True)    
-            subprocess.call('git commit -m "automated" ',shell=True)    
-            subprocess.call(f'git push -u origin {branchName}',shell=True)    
-
-
 if __name__ == '__main__':
     w = Watcher()
     w.run()
