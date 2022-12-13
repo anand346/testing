@@ -57,7 +57,7 @@ class Watcher:
                 time.sleep(1)
         except KeyboardInterrupt:
             self.observer.stop()
-            print("Error")
+            print("exit")
 
 
         self.observer.join()
@@ -67,7 +67,6 @@ class Handler(FileSystemEventHandler):
 
     @staticmethod
     def on_any_event(event):
-        print(f"source is : {event.src_path}")
         if(".git" in event.src_path) : 
             return None
 
@@ -87,9 +86,6 @@ class Handler(FileSystemEventHandler):
             print("modified")
             branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
             branchName = branchName.decode()
-            # print(f'git push -u origin {branchName}')
-
-            # exit()
             subprocess.call(f'git push -u origin {branchName}',shell=True)  
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
