@@ -1,3 +1,7 @@
-import subprocess
-val = subprocess.check_output('git remote -v',shell=True)
-print(val.decode('utf-8').split()[1])
+parser = OptionParser()
+parser.add_option("-s", "--source", dest="source",
+                  help="Give your repo url")
+parser.add_option("-b", "--branch",dest="branch",
+                  help="give your branch name here")
+
+(options, args) = parser.parse_args()
