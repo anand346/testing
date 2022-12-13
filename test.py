@@ -18,7 +18,7 @@ class Watcher:
 
     def __init__(self):
         self.observer = Observer()
-        if(options.branch == None and options.source == None) :
+        if(options.branch == None or options.source == None) :
             subprocess.call('git add .',shell=True)    
             subprocess.call('git commit -m "automated" ',shell=True)    
             subprocess.call(f'git push -u origin master',shell=True)    
