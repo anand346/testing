@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Automate Git",
+            "type": "shell",
+            "command": "python test.py --source ${input:getSourceDestination} --branch ${input:getBranchName}",
+            "windows": {
+                "command": "python test.py --source ${input:getSourceDestination} --branch ${input:getBranchName}"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "runOptions": {
+                "runOn": "folderOpen",
+            }
+        }
+        // {
+        //     "label": "Start Test",
+        //     "type": "shell",
+        //     "command": "npm run test",
+        //     "windows": {
+        //         "command": "npm run test"
+        //     },
+        //     "group": "none",
+        //     "presentation": {
+        //         "reveal": "always",
+        //         "panel": "new"
+        //     },
+        //     "runOptions": {
+        //         "runOn": "folderOpen",
+        //     }
+        // }
+    ],
+    "inputs" : [
+        {
+            "id" : "getSourceDestination",
+            "description" : "Type your repository url",
+            "type" : "promptString"
+        },
+        {
+            "id" : "getBranchName",
+            "description" : "Type your branch name",
+            "type" : "promptString"
+        },
+    ]
+}
