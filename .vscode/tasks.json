@@ -38,7 +38,8 @@
         {
             "id" : "getSourceDestination",
             "description" : "Type your repository url",
-            "type" : "promptString"
+            "type" : "promptString",
+            "default": ""
         },
         {
             "id" : "getBranchName",
