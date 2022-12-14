@@ -45,7 +45,7 @@
             "id" : "getBranchName",
             "description" : "Type your branch name",
             "default": "none",
-            "type" : "promptString"
+            "type" : "p"
         },
     ]
 }
