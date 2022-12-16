@@ -75,6 +75,7 @@ class Handler(FileSystemEventHandler):
             return None
 
         elif (event.event_type == 'created' or event.event_type == 'modified'):
+            val = subprocess.check_output('git remote -v',shell=True)
             if('https://' in val.decode('utf-8').split()[1]) :
                 print("event is : ",event.event_type)
                 branchName = subprocess.check_output('git rev-parse --abbrev-ref HEAD',shell=True)
