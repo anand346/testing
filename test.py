@@ -41,6 +41,7 @@ class Watcher:
         else :
             print("https else block")
             if(options.source != "none" and options.branch != "none") :
+                if('https://' in val.decode('utf-8').split()[1]) :
                 subprocess.call('git init',shell=True)
                 subprocess.call('git add .',shell=True)
                 subprocess.call('git commit -m "automated" ',shell=True)
